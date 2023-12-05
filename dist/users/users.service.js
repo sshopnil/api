@@ -21,6 +21,10 @@ let UsersService = class UsersService {
         this.userModel = userModel;
     }
     async signup(user) {
+        const finduser = await this.userModel.findOne({ email: user.email });
+        if (finduser) {
+            throw new common_1.UnauthorizedException(`user already created with this ${user.email}`);
+        }
         const newUser = new this.userModel(user);
         return await newUser.save();
     }
