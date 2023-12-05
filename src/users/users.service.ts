@@ -54,4 +54,9 @@ export class UsersService {
             throw new UnauthorizedException(`Invalid Password`);
         }
     }
+
+    async findAll(): Promise<User[]>{
+        const users = await this.userModel.find();
+        return users;
+    }
 }

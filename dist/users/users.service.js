@@ -51,6 +51,10 @@ let UsersService = class UsersService {
             throw new common_1.UnauthorizedException(`Invalid Password`);
         }
     }
+    async findAll() {
+        const users = await this.userModel.find();
+        return users;
+    }
 };
 exports.UsersService = UsersService;
 exports.UsersService = UsersService = __decorate([

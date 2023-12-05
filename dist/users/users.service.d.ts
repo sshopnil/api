@@ -33,4 +33,5 @@ export declare class UsersService {
     constructor(userModel: Model<User>, hasherService: PasswordHasherService);
     signup(user: CreateUserDTO): Promise<SignUpResponse>;
     login(doc: LoginDTO): Promise<LoginResponse>;
+    findAll(): Promise<User[]>;
 }

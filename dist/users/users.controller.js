@@ -27,6 +27,9 @@ let UsersController = class UsersController {
     async login(doc) {
         return this.userServ.login(doc);
     }
+    async alluser() {
+        return this.userServ.findAll();
+    }
 };
 exports.UsersController = UsersController;
 __decorate([
@@ -43,6 +46,12 @@ __decorate([
     __metadata("design:paramtypes", [login_user_dto_1.LoginDTO]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "login", null);
+__decorate([
+    (0, common_1.Get)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "alluser", null);
 exports.UsersController = UsersController = __decorate([
     (0, common_1.Controller)('users'),
     __metadata("design:paramtypes", [users_service_1.UsersService])
