@@ -10,3 +10,7 @@ export interface User extends Document{
 export interface SignUpResponse{
     readonly email: string;
 }
+
+export interface LoginResponse{
+    readonly token: string;
+}

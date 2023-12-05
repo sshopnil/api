@@ -6,12 +6,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AuthModule = void 0;
+exports.PasswordHasherService = void 0;
 const common_1 = require("@nestjs/common");
-let AuthModule = class AuthModule {
+const bcrypt = require("bcrypt");
+let PasswordHasherService = class PasswordHasherService {
+    async hashPassword(password) {
+        return await bcrypt.hash(password, 10);
+    }
+    async comparePassword(password, encryptedpass) {
+        return await bcrypt.compare(password, encryptedpass);
+    }
 };
-exports.AuthModule = AuthModule;
-exports.AuthModule = AuthModule = __decorate([
-    (0, common_1.Module)({})
-], AuthModule);
-//# sourceMappingURL=auth.module.js.map
+exports.PasswordHasherService = PasswordHasherService;
+exports.PasswordHasherService = PasswordHasherService = __decorate([
+    (0, common_1.Injectable)()
+], PasswordHasherService);
+//# sourceMappingURL=password-hasher.service.js.map

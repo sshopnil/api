@@ -16,6 +16,7 @@ exports.UsersController = void 0;
 const common_1 = require("@nestjs/common");
 const users_service_1 = require("./users.service");
 const create_user_dto_1 = require("./dto/create-user.dto");
+const login_user_dto_1 = require("./dto/login-user.dto");
 let UsersController = class UsersController {
     constructor(userServ) {
         this.userServ = userServ;
@@ -23,8 +24,8 @@ let UsersController = class UsersController {
     async signUp(user) {
         return this.userServ.signup(user);
     }
-    hello() {
-        return "helo there";
+    async login(doc) {
+        return this.userServ.login(doc);
     }
 };
 exports.UsersController = UsersController;
@@ -36,11 +37,12 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "signUp", null);
 __decorate([
-    (0, common_1.Get)('hello'),
+    (0, common_1.Post)('login'),
+    __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", String)
-], UsersController.prototype, "hello", null);
+    __metadata("design:paramtypes", [login_user_dto_1.LoginDTO]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "login", null);
 exports.UsersController = UsersController = __decorate([
     (0, common_1.Controller)('users'),
     __metadata("design:paramtypes", [users_service_1.UsersService])

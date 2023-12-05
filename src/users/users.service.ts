@@ -1,9 +1,10 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { CreateUserDTO } from './dto/create-user.dto';
-import { SignUpResponse, User } from './interfaces/user-interface';
+import { LoginResponse, SignUpResponse, User } from './interfaces/user-interface';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { PasswordHasherService } from './auth/password-hasher/password-hasher.service';
+import { LoginDTO } from './dto/login-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -23,7 +24,7 @@ export class UsersService {
         }
 
         //encrypt the user pass before saving
-        const encryptedPass = this.hasherService.hashPassword(user.password);
+        const encryptedPass = await this.hasherService.hashPassword(user.password);
 
         const newUser = new this.userModel({
             name: user.name,
@@ -34,5 +35,23 @@ export class UsersService {
         });
         await newUser.save()
         return {email: user.email};
+    }
+
+    async login(doc: LoginDTO) : Promise<LoginResponse> {
+        const finduser = await this.userModel.findOne({email: doc.email});
+
+        //checking user mail
+        if(!finduser){
+            throw new UnauthorizedException(`${doc.email}, Invalid email`)
+        }
+
+        //checking user pass
+        const matchedPass = await this.hasherService.comparePassword(doc.password, finduser.password);
+        if(matchedPass){
+            return {token: 'ok'}
+        }   
+        else{
+            throw new UnauthorizedException(`Invalid Password`);
+        }
     }
 }

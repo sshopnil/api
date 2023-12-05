@@ -16,23 +16,47 @@ exports.UsersService = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
+const password_hasher_service_1 = require("./auth/password-hasher/password-hasher.service");
 let UsersService = class UsersService {
-    constructor(userModel) {
+    constructor(userModel, hasherService) {
         this.userModel = userModel;
+        this.hasherService = hasherService;
     }
     async signup(user) {
         const finduser = await this.userModel.findOne({ email: user.email });
         if (finduser) {
             throw new common_1.UnauthorizedException(`user already created with this ${user.email}`);
         }
-        const newUser = new this.userModel(user);
-        return await newUser.save();
+        const encryptedPass = await this.hasherService.hashPassword(user.password);
+        const newUser = new this.userModel({
+            name: user.name,
+            password: encryptedPass,
+            image: user?.image,
+            email: user.email,
+            user_role: user?.user_role
+        });
+        await newUser.save();
+        return { email: user.email };
+    }
+    async login(doc) {
+        const finduser = await this.userModel.findOne({ email: doc.email });
+        if (!finduser) {
+            throw new common_1.UnauthorizedException(`${doc.email}, Invalid email`);
+        }
+        const matchedPass = await this.hasherService.comparePassword(doc.password, finduser.password);
+        if (matchedPass) {
+            return { token: 'ok' };
+        }
+        else {
+            throw new common_1.UnauthorizedException(`Invalid Password`);
+        }
     }
 };
 exports.UsersService = UsersService;
 exports.UsersService = UsersService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, mongoose_1.InjectModel)('Users')),
-    __metadata("design:paramtypes", [mongoose_2.Model])
+    __metadata("design:paramtypes", [mongoose_2.Model,
+        password_hasher_service_1.PasswordHasherService])
 ], UsersService);
 //# sourceMappingURL=users.service.js.map

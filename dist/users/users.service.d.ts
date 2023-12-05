@@ -23,10 +23,14 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
 import { CreateUserDTO } from './dto/create-user.dto';
-import { SignUpResponse, User } from './interfaces/user-interface';
+import { LoginResponse, SignUpResponse, User } from './interfaces/user-interface';
 import { Model } from 'mongoose';
+import { PasswordHasherService } from './auth/password-hasher/password-hasher.service';
+import { LoginDTO } from './dto/login-user.dto';
 export declare class UsersService {
     private readonly userModel;
-    constructor(userModel: Model<User>);
+    private readonly hasherService;
+    constructor(userModel: Model<User>, hasherService: PasswordHasherService);
     signup(user: CreateUserDTO): Promise<SignUpResponse>;
+    login(doc: LoginDTO): Promise<LoginResponse>;
 }
