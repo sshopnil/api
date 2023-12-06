@@ -34,4 +34,5 @@ export declare class UsersService {
     signup(user: CreateUserDTO): Promise<SignUpResponse>;
     login(doc: LoginDTO): Promise<LoginResponse>;
     findAll(): Promise<User[]>;
+    find(emailAddr: string): Promise<User>;
 }

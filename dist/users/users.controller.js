@@ -30,6 +30,9 @@ let UsersController = class UsersController {
     async alluser() {
         return this.userServ.findAll();
     }
+    async finbymail(email) {
+        return this.userServ.find(email);
+    }
 };
 exports.UsersController = UsersController;
 __decorate([
@@ -52,6 +55,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "alluser", null);
+__decorate([
+    (0, common_1.Get)(':email'),
+    __param(0, (0, common_1.Param)('email')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "finbymail", null);
 exports.UsersController = UsersController = __decorate([
     (0, common_1.Controller)('users'),
     __metadata("design:paramtypes", [users_service_1.UsersService])

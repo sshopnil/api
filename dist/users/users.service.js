@@ -55,6 +55,9 @@ let UsersService = class UsersService {
         const users = await this.userModel.find();
         return users;
     }
+    async find(emailAddr) {
+        return await this.userModel.findOne({ email: emailAddr });
+    }
 };
 exports.UsersService = UsersService;
 exports.UsersService = UsersService = __decorate([
