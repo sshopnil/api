@@ -22,16 +22,19 @@ let UsersController = class UsersController {
         this.userServ = userServ;
     }
     async signUp(user) {
-        return this.userServ.signup(user);
+        return await this.userServ.signup(user);
     }
     async login(doc) {
-        return this.userServ.login(doc);
+        return await this.userServ.login(doc);
     }
     async alluser() {
-        return this.userServ.findAll();
+        return await this.userServ.findAll();
     }
     async finbymail(email) {
         return this.userServ.find(email);
+    }
+    async updateInfo(email) {
+        return await this.userServ.updateStatus(email);
     }
 };
 exports.UsersController = UsersController;
@@ -62,6 +65,13 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "finbymail", null);
+__decorate([
+    (0, common_1.Put)('/update/:email'),
+    __param(0, (0, common_1.Param)('email')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "updateInfo", null);
 exports.UsersController = UsersController = __decorate([
     (0, common_1.Controller)('users'),
     __metadata("design:paramtypes", [users_service_1.UsersService])

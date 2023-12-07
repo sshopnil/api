@@ -5,6 +5,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { PasswordHasherService } from './auth/password-hasher/password-hasher.service';
 import { LoginDTO } from './dto/login-user.dto';
+import { UpdateUserDTO } from './dto/update-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -48,7 +49,7 @@ export class UsersService {
         //checking user pass
         const matchedPass = await this.hasherService.comparePassword(doc.password, finduser.password);
         if(matchedPass){
-            return {token: 'ok'}
+            return {token: finduser.user_role}
         }   
         else{
             throw new UnauthorizedException(`Invalid Password`);
@@ -62,5 +63,9 @@ export class UsersService {
 
     async find(emailAddr: string): Promise<User>{
         return await this.userModel.findOne({email: emailAddr});
+    }
+
+    async updateStatus(emailAddr: string): Promise<User>{
+        return await this.userModel.findOneAndUpdate({email: emailAddr}, {user_role: 'privileged'}, {new: true});
     }
 }

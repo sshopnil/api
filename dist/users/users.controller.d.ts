@@ -9,4 +9,5 @@ export declare class UsersController {
     login(doc: LoginDTO): Promise<LoginResponse>;
     alluser(): Promise<User[]>;
     finbymail(email: string): Promise<User>;
+    updateInfo(email: string): Promise<User>;
 }

@@ -50,35 +50,41 @@
 /// <reference types="mongoose-sequence/node_modules/mongoose/types/inferschematype" />
 import mongoose from "mongoose";
 export declare const OrderSchema: mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
-    price: number;
     status: number;
+    price: number;
     delDate_start: string;
     delDate_end: string;
     seller_email: string;
     phone: string;
     buyer_email: string;
+    buyer_address: string;
     id?: number;
     del_date?: string;
+    seller_address?: string;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
-    price: number;
     status: number;
+    price: number;
     delDate_start: string;
     delDate_end: string;
     seller_email: string;
     phone: string;
     buyer_email: string;
+    buyer_address: string;
     id?: number;
     del_date?: string;
+    seller_address?: string;
 }>> & mongoose.FlatRecord<{
-    price: number;
     status: number;
+    price: number;
     delDate_start: string;
     delDate_end: string;
     seller_email: string;
     phone: string;
     buyer_email: string;
+    buyer_address: string;
     id?: number;
     del_date?: string;
+    seller_address?: string;
 }> & {
     _id: mongoose.Types.ObjectId;
 }>;

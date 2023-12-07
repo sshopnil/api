@@ -36,6 +36,13 @@ exports.OrderSchema = new mongoose_1.default.Schema({
     buyer_email: {
         type: String,
         required: true
+    },
+    seller_address: {
+        type: String,
+    },
+    buyer_address: {
+        type: String,
+        required: true
     }
 });
 //# sourceMappingURL=order.schema.js.map

@@ -45,7 +45,7 @@ let UsersService = class UsersService {
         }
         const matchedPass = await this.hasherService.comparePassword(doc.password, finduser.password);
         if (matchedPass) {
-            return { token: 'ok' };
+            return { token: finduser.user_role };
         }
         else {
             throw new common_1.UnauthorizedException(`Invalid Password`);
@@ -57,6 +57,9 @@ let UsersService = class UsersService {
     }
     async find(emailAddr) {
         return await this.userModel.findOne({ email: emailAddr });
+    }
+    async updateStatus(emailAddr) {
+        return await this.userModel.findOneAndUpdate({ email: emailAddr }, { user_role: 'privileged' }, { new: true });
     }
 };
 exports.UsersService = UsersService;

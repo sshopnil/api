@@ -8,6 +8,8 @@ export interface OrderItem{
     seller_email:string
     phone:string
     buyer_email:string
+    seller_address?:string
+    buyer_address:string
 }
 export interface UpdateOrderItem{
     id?:number
@@ -19,4 +21,6 @@ export interface UpdateOrderItem{
     seller_email?:string
     phone?:string
     buyer_email?:string
+    seller_address?:string
+    buyer_address?:string
 }

@@ -8,4 +8,6 @@ export declare class OrderDTO {
     seller_email: string;
     phone: string;
     buyer_email: string;
+    seller_address?: string;
+    buyer_address: string;
 }

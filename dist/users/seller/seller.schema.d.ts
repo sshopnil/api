@@ -48,18 +48,34 @@
 /// <reference types="mongoose-sequence" />
 /// <reference types="mongoose/types/inferschematype" />
 /// <reference types="mongoose-sequence/node_modules/mongoose/types/inferschematype" />
-import { CreateUserDTO } from './dto/create-user.dto';
-import { LoginResponse, SignUpResponse, User } from './interfaces/user-interface';
-import { Model } from 'mongoose';
-import { PasswordHasherService } from './auth/password-hasher/password-hasher.service';
-import { LoginDTO } from './dto/login-user.dto';
-export declare class UsersService {
-    private readonly userModel;
-    private readonly hasherService;
-    constructor(userModel: Model<User>, hasherService: PasswordHasherService);
-    signup(user: CreateUserDTO): Promise<SignUpResponse>;
-    login(doc: LoginDTO): Promise<LoginResponse>;
-    findAll(): Promise<User[]>;
-    find(emailAddr: string): Promise<User>;
-    updateStatus(emailAddr: string): Promise<User>;
-}
+import mongoose from "mongoose";
+export declare const SellerSchema: mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
+    email: string;
+    shop_name: string;
+    address: string;
+    house: string;
+    thana: string;
+    division: string;
+    category: any[];
+    phone: string;
+}, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
+    email: string;
+    shop_name: string;
+    address: string;
+    house: string;
+    thana: string;
+    division: string;
+    category: any[];
+    phone: string;
+}>> & mongoose.FlatRecord<{
+    email: string;
+    shop_name: string;
+    address: string;
+    house: string;
+    thana: string;
+    division: string;
+    category: any[];
+    phone: string;
+}> & {
+    _id: mongoose.Types.ObjectId;
+}>;

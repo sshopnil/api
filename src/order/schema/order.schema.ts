@@ -34,6 +34,13 @@ export const OrderSchema = new mongoose.Schema({
     buyer_email:{
         type: String,
         required: true
+    },
+    seller_address:{
+        type: String,
+    },
+    buyer_address:{
+        type: String,
+        required: true
     }
 });
 

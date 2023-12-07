@@ -48,18 +48,12 @@
 /// <reference types="mongoose-sequence" />
 /// <reference types="mongoose/types/inferschematype" />
 /// <reference types="mongoose-sequence/node_modules/mongoose/types/inferschematype" />
-import { CreateUserDTO } from './dto/create-user.dto';
-import { LoginResponse, SignUpResponse, User } from './interfaces/user-interface';
 import { Model } from 'mongoose';
-import { PasswordHasherService } from './auth/password-hasher/password-hasher.service';
-import { LoginDTO } from './dto/login-user.dto';
-export declare class UsersService {
+import { SellerInfo } from './seller.interface';
+import { SellerDTO } from './seller.dto';
+export declare class SellerService {
     private readonly userModel;
-    private readonly hasherService;
-    constructor(userModel: Model<User>, hasherService: PasswordHasherService);
-    signup(user: CreateUserDTO): Promise<SignUpResponse>;
-    login(doc: LoginDTO): Promise<LoginResponse>;
-    findAll(): Promise<User[]>;
-    find(emailAddr: string): Promise<User>;
-    updateStatus(emailAddr: string): Promise<User>;
+    constructor(userModel: Model<SellerInfo>);
+    sellerAdd(seller: SellerDTO): Promise<boolean>;
+    getSeller(email: string): Promise<SellerInfo>;
 }

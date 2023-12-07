@@ -88,4 +88,23 @@ export class OrderDTO {
         example: 'dev@gmail.com'
     })
     buyer_email: string
+
+
+    @IsString()
+    @IsNotEmpty()
+    @ApiProperty({
+        name: 'seller address',
+        type:String,
+        example: 'address*'
+    })
+    seller_address?:string
+
+    @IsString()
+    @IsNotEmpty()
+    @ApiProperty({
+        name: 'buyer address',
+        type:String,
+        example: 'address*'
+    })
+    buyer_address:string
 }
