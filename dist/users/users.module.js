@@ -13,14 +13,17 @@ const users_controller_1 = require("./users.controller");
 const mongoose_1 = require("@nestjs/mongoose");
 const users_schema_1 = require("./schemas/users.schema");
 const password_hasher_service_1 = require("./auth/password-hasher/password-hasher.service");
+const seller_controller_1 = require("./seller/seller.controller");
+const seller_service_1 = require("./seller/seller.service");
+const seller_schema_1 = require("./seller/seller.schema");
 let UsersModule = class UsersModule {
 };
 exports.UsersModule = UsersModule;
 exports.UsersModule = UsersModule = __decorate([
     (0, common_1.Module)({
-        imports: [mongoose_1.MongooseModule.forFeature([{ name: 'Users', schema: users_schema_1.UserSchema }])],
-        providers: [users_service_1.UsersService, password_hasher_service_1.PasswordHasherService],
-        controllers: [users_controller_1.UsersController]
+        imports: [mongoose_1.MongooseModule.forFeature([{ name: 'Users', schema: users_schema_1.UserSchema }, { name: 'sellers', schema: seller_schema_1.SellerSchema }])],
+        providers: [users_service_1.UsersService, password_hasher_service_1.PasswordHasherService, seller_service_1.SellerService],
+        controllers: [users_controller_1.UsersController, seller_controller_1.SellerController]
     })
 ], UsersModule);
 //# sourceMappingURL=users.module.js.map
