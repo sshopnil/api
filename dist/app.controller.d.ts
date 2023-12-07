@@ -1,6 +1,6 @@
-import { AppService } from './app.service';
+import { PusherService } from './pusher.service';
 export declare class AppController {
-    private readonly appService;
-    constructor(appService: AppService);
-    getHello(): string;
+    private pusherService;
+    constructor(pusherService: PusherService);
+    messages(username: string, message: string): Promise<any[]>;
 }

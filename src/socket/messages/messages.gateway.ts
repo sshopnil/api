@@ -11,13 +11,25 @@ import { Server, Socket} from 'socket.io';
 export class MessagesGateway {
   @WebSocketServer()
   server: Server;
-  constructor(private readonly messagesService: MessagesService) {}
 
+  handleConnection(client) {
+    console.log('Client connected');
+  }
+
+  handleDisconnect(client) {
+    console.log('Client disconnected');
+  }
+  constructor(private readonly messagesService: MessagesService) {}
+  @SubscribeMessage('message')
+  handleEvent(@MessageBody() data: CreateMessageDto) {
+
+    return data;
+  }
   @SubscribeMessage('createMessage')
   async create(@MessageBody() createMessageDto: CreateMessageDto) {
-    const message = await this.messagesService.create(createMessageDto);
+    const message =  this.messagesService.create(createMessageDto);
 
-    this.server.emit('message', message);
+    this.server.emit('message', message, ()=> console.log("on server", message));
     
     return message;
   }

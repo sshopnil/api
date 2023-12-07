@@ -18,12 +18,21 @@ const messages_service_1 = require("./messages.service");
 const create_message_dto_1 = require("./dto/create-message.dto");
 const socket_io_1 = require("socket.io");
 let MessagesGateway = class MessagesGateway {
+    handleConnection(client) {
+        console.log('Client connected');
+    }
+    handleDisconnect(client) {
+        console.log('Client disconnected');
+    }
     constructor(messagesService) {
         this.messagesService = messagesService;
     }
+    handleEvent(data) {
+        return data;
+    }
     async create(createMessageDto) {
-        const message = await this.messagesService.create(createMessageDto);
-        this.server.emit('message', message);
+        const message = this.messagesService.create(createMessageDto);
+        this.server.emit('message', message, () => console.log("on server", message));
         return message;
     }
     findAll() {
@@ -38,6 +47,13 @@ __decorate([
     (0, websockets_1.WebSocketServer)(),
     __metadata("design:type", socket_io_1.Server)
 ], MessagesGateway.prototype, "server", void 0);
+__decorate([
+    (0, websockets_1.SubscribeMessage)('message'),
+    __param(0, (0, websockets_1.MessageBody)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [create_message_dto_1.CreateMessageDto]),
+    __metadata("design:returntype", void 0)
+], MessagesGateway.prototype, "handleEvent", null);
 __decorate([
     (0, websockets_1.SubscribeMessage)('createMessage'),
     __param(0, (0, websockets_1.MessageBody)()),

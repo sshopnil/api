@@ -12,6 +12,8 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const mongoose_1 = require("@nestjs/mongoose");
 const users_module_1 = require("./users/users.module");
+const pusher_service_1 = require("./pusher.service");
+const app_gateway_1 = require("./app.gateway");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -22,7 +24,7 @@ exports.AppModule = AppModule = __decorate([
             users_module_1.UsersModule,
         ],
         controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        providers: [app_service_1.AppService, pusher_service_1.PusherService, app_gateway_1.AppGateway],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map

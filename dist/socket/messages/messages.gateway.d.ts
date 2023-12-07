@@ -4,7 +4,10 @@ import { Server, Socket } from 'socket.io';
 export declare class MessagesGateway {
     private readonly messagesService;
     server: Server;
+    handleConnection(client: any): void;
+    handleDisconnect(client: any): void;
     constructor(messagesService: MessagesService);
+    handleEvent(data: CreateMessageDto): CreateMessageDto;
     create(createMessageDto: CreateMessageDto): Promise<{
         name: string;
         text: string;
