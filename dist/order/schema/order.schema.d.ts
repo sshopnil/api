@@ -49,36 +49,36 @@
 /// <reference types="mongoose/types/inferschematype" />
 /// <reference types="mongoose-sequence/node_modules/mongoose/types/inferschematype" />
 import mongoose from "mongoose";
-export declare const ProductSchema: mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
-    name: string;
-    image: string;
+export declare const OrderSchema: mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
     price: number;
-    qty: number;
-    desc: string;
-    user_email: string;
-    category: number;
-    prod_id?: number;
-    rating?: number;
+    status: number;
+    delDate_start: string;
+    delDate_end: string;
+    seller_email: string;
+    phone: string;
+    buyer_email: string;
+    id?: number;
+    del_date?: string;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
-    name: string;
-    image: string;
     price: number;
-    qty: number;
-    desc: string;
-    user_email: string;
-    category: number;
-    prod_id?: number;
-    rating?: number;
+    status: number;
+    delDate_start: string;
+    delDate_end: string;
+    seller_email: string;
+    phone: string;
+    buyer_email: string;
+    id?: number;
+    del_date?: string;
 }>> & mongoose.FlatRecord<{
-    name: string;
-    image: string;
     price: number;
-    qty: number;
-    desc: string;
-    user_email: string;
-    category: number;
-    prod_id?: number;
-    rating?: number;
+    status: number;
+    delDate_start: string;
+    delDate_end: string;
+    seller_email: string;
+    phone: string;
+    buyer_email: string;
+    id?: number;
+    del_date?: string;
 }> & {
     _id: mongoose.Types.ObjectId;
 }>;

@@ -8,7 +8,7 @@ export class CreateProductDTO{
         name: 'product id',
         description: 'auto generated field (not required for body)',
         type:Number,
-        example: '1'
+        example: '*not required*'
     })
     prod_id:number
 

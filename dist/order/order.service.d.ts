@@ -48,37 +48,16 @@
 /// <reference types="mongoose-sequence" />
 /// <reference types="mongoose/types/inferschematype" />
 /// <reference types="mongoose-sequence/node_modules/mongoose/types/inferschematype" />
-import mongoose from "mongoose";
-export declare const ProductSchema: mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
-    name: string;
-    image: string;
-    price: number;
-    qty: number;
-    desc: string;
-    user_email: string;
-    category: number;
-    prod_id?: number;
-    rating?: number;
-}, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
-    name: string;
-    image: string;
-    price: number;
-    qty: number;
-    desc: string;
-    user_email: string;
-    category: number;
-    prod_id?: number;
-    rating?: number;
-}>> & mongoose.FlatRecord<{
-    name: string;
-    image: string;
-    price: number;
-    qty: number;
-    desc: string;
-    user_email: string;
-    category: number;
-    prod_id?: number;
-    rating?: number;
-}> & {
-    _id: mongoose.Types.ObjectId;
-}>;
+import { Connection, Model } from 'mongoose';
+import { OrderItem } from './interfaces/order.interface';
+import { OrderDTO } from './dto/order.dto';
+import { UpdateOrderDTO } from './dto/update-order.dto';
+export declare class OrderService {
+    private readonly orderModel;
+    private connection;
+    constructor(orderModel: Model<OrderItem>, connection: Connection);
+    createOrder(order: OrderDTO): Promise<boolean>;
+    findbySellermail(email: string): Promise<OrderItem[]>;
+    findbyBuyermail(email: string): Promise<OrderItem[]>;
+    updateAction(id: number, orderUpdate: UpdateOrderDTO): Promise<OrderItem>;
+}

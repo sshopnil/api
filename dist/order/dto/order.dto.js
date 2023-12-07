@@ -9,12 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateProductDTO = void 0;
+exports.OrderDTO = void 0;
 const swagger_1 = require("@nestjs/swagger");
 const class_validator_1 = require("class-validator");
-class CreateProductDTO {
+class OrderDTO {
 }
-exports.CreateProductDTO = CreateProductDTO;
+exports.OrderDTO = OrderDTO;
 __decorate([
     (0, class_validator_1.IsNumber)(),
     (0, swagger_1.ApiProperty)({
@@ -24,72 +24,57 @@ __decorate([
         example: '*not required*'
     }),
     __metadata("design:type", Number)
-], CreateProductDTO.prototype, "prod_id", void 0);
+], OrderDTO.prototype, "id", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsOptional)(),
     (0, swagger_1.ApiProperty)({
-        name: 'product name',
-        description: 'name of the product to add',
+        name: 'delivery date',
         type: String,
-        example: 'Murgir dim'
+        example: 'date string',
     }),
     __metadata("design:type", String)
-], CreateProductDTO.prototype, "name", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    (0, swagger_1.ApiProperty)({
-        name: 'product image',
-        description: 'must be added with product information',
-        type: String,
-        example: '<image_uri>'
-    }),
-    __metadata("design:type", String)
-], CreateProductDTO.prototype, "image", void 0);
+], OrderDTO.prototype, "del_date", void 0);
 __decorate([
     (0, class_validator_1.IsNumber)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, swagger_1.ApiProperty)({
-        name: 'product price',
-        description: 'price of the product in number type',
-        type: Number,
-        example: '10'
+        name: 'delivery status',
+        type: String,
+        example: 'date status',
     }),
     __metadata("design:type", Number)
-], CreateProductDTO.prototype, "price", void 0);
+], OrderDTO.prototype, "status", void 0);
 __decorate([
     (0, class_validator_1.IsNumber)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, swagger_1.ApiProperty)({
-        name: 'product quantity',
-        description: 'quantity of the product that user have',
-        type: Number,
-        example: '50'
+        name: 'order price',
+        type: String,
+        example: 'total price',
     }),
     __metadata("design:type", Number)
-], CreateProductDTO.prototype, "qty", void 0);
+], OrderDTO.prototype, "price", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, swagger_1.ApiProperty)({
-        name: 'product description',
-        description: 'information and features about the product',
+        name: 'expected delivery',
         type: String,
-        example: 'text info....'
+        example: 'date',
     }),
     __metadata("design:type", String)
-], CreateProductDTO.prototype, "desc", void 0);
+], OrderDTO.prototype, "delDate_start", void 0);
 __decorate([
-    (0, class_validator_1.IsNumber)(),
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
     (0, swagger_1.ApiProperty)({
-        name: 'product rating',
-        description: 'rating provided by customers',
-        type: Number,
-        example: '50'
+        name: 'last delivery date',
+        type: String,
+        example: 'date',
     }),
-    __metadata("design:type", Number)
-], CreateProductDTO.prototype, "rating", void 0);
+    __metadata("design:type", String)
+], OrderDTO.prototype, "delDate_end", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsEmail)(),
@@ -101,17 +86,27 @@ __decorate([
         example: 'dev@gmail.com'
     }),
     __metadata("design:type", String)
-], CreateProductDTO.prototype, "user_email", void 0);
+], OrderDTO.prototype, "seller_email", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, swagger_1.ApiProperty)({
-        name: 'products category',
-        description: '1 for poltry, 2 for dairy, 3 for veg',
-        type: Number,
-        example: '1'
+        name: 'seller phone number',
+        type: String,
+        example: '+880151515115'
     }),
-    __metadata("design:type", Number)
-], CreateProductDTO.prototype, "category", void 0);
-;
-//# sourceMappingURL=product.dto.js.map
+    __metadata("design:type", String)
+], OrderDTO.prototype, "phone", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsEmail)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, swagger_1.ApiProperty)({
+        name: 'buyer email',
+        description: 'email of the buyer',
+        type: String,
+        example: 'dev@gmail.com'
+    }),
+    __metadata("design:type", String)
+], OrderDTO.prototype, "buyer_email", void 0);
+//# sourceMappingURL=order.dto.js.map

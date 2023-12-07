@@ -12,55 +12,42 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProductsService = void 0;
+exports.OrderService = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
-let ProductsService = class ProductsService {
-    constructor(productModel, connection) {
-        this.productModel = productModel;
+let OrderService = class OrderService {
+    constructor(orderModel, connection) {
+        this.orderModel = orderModel;
         this.connection = connection;
     }
-    async addProduct(product) {
-        const newProd = new this.productModel(product);
-        await newProd.save();
+    async createOrder(order) {
+        const newOrder = new this.orderModel(order);
+        await newOrder.save();
         return true;
     }
-    async getAllProd() {
-        return this.productModel.find();
+    async findbySellermail(email) {
+        return await this.orderModel.find({ seller_email: email });
     }
-    async delbyid(prod_id) {
-        const findProd = await this.productModel.findOne({ prod_id });
-        if (findProd) {
-            const delProd = await this.productModel.deleteOne({ prod_id });
-            return delProd.acknowledged;
-        }
-        else {
-            throw new common_1.NotFoundException('Invalid product id provided!');
-        }
+    async findbyBuyermail(email) {
+        return await this.orderModel.find({ buyer_email: email });
     }
-    async update(id, updatedProd) {
-        const findProd = await this.productModel.findOne({ prod_id: id });
+    async updateAction(id, orderUpdate) {
+        const findProd = await this.orderModel.findOne({ id });
         if (!findProd) {
             throw new common_1.NotFoundException('Product not found!');
         }
-        const filter = { prod_id: id };
-        const update = await this.productModel.findOneAndUpdate(filter, updatedProd, { new: true });
+        const filter = { id };
+        const update = await this.orderModel.findOneAndUpdate(filter, orderUpdate, { new: true });
         return update;
     }
-    async getOne(id) {
-        return await this.productModel.findOne({ prod_id: id });
-    }
-    async findbymail(email) {
-        return await this.productModel.find({ user_email: email });
-    }
 };
-exports.ProductsService = ProductsService;
-exports.ProductsService = ProductsService = __decorate([
+exports.OrderService = OrderService;
+exports.OrderService = OrderService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, mongoose_1.InjectModel)('products')),
+    __param(0, (0, mongoose_1.InjectModel)('orders')),
     __param(1, (0, mongoose_1.InjectConnection)()),
     __metadata("design:paramtypes", [mongoose_2.Model,
         mongoose_2.Connection])
-], ProductsService);
-//# sourceMappingURL=products.service.js.map
+], OrderService);
+//# sourceMappingURL=order.service.js.map

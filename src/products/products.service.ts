@@ -43,19 +43,7 @@ export class ProductsService {
             throw new NotFoundException('Product not found!');
         }
 
-        const {name, price, qty, desc, image, rating, category} = updatedProd;
-
-
         const filter = {prod_id: id};
-        const updateItem = {
-            name: name, 
-            price: price, 
-            qty: qty, 
-            desc: desc, 
-            image: image, 
-            rating: rating, 
-            category: category
-        }
 
         const update = await this.productModel.findOneAndUpdate(filter, updatedProd, {new: true});
 
