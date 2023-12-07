@@ -1,39 +1,21 @@
 import { ApiProperty } from "@nestjs/swagger"
-import { IsEmail, IsNotEmpty, IsNumber, IsOptional, IsPhoneNumber, IsString } from "class-validator"
+import { IsArray, IsEmail, IsNotEmpty, IsNumber, IsOptional, IsPhoneNumber, IsString } from "class-validator"
 
 export class OrderDTO {
-    @IsNumber()
-    @ApiProperty({
-        name: 'product id',
-        description: 'auto generated field (not required for body)',
-        type: Number,
-        example: '*not required*'
-    })
-    id: number
-
-
-    @IsString()
-    @IsOptional()
-    @ApiProperty({
-        name: 'delivery date',
-        type: String,
-        example: 'date string',
-    })
-    del_date: string
 
     @IsNumber()
     @IsNotEmpty()
     @ApiProperty({
-        name: 'delivery status',
-        type: String,
-        example: 'date status',
+        name: 'status',
+        type: Number,
+        example: 'order status',
     })
     status: number
 
     @IsNumber()
     @IsNotEmpty()
     @ApiProperty({
-        name: 'order price',
+        name: 'price',
         type: String,
         example: 'total price',
     })
@@ -42,7 +24,7 @@ export class OrderDTO {
     @IsString()
     @IsNotEmpty()
     @ApiProperty({
-        name: 'expected delivery',
+        name: 'delDate_start',
         type: String,
         example: 'date',
     })
@@ -51,7 +33,7 @@ export class OrderDTO {
     @IsString()
     @IsNotEmpty()
     @ApiProperty({
-        name: 'last delivery date',
+        name: 'delDate_end',
         type: String,
         example: 'date',
     })
@@ -62,47 +44,27 @@ export class OrderDTO {
     @IsEmail()
     @IsNotEmpty()
     @ApiProperty({
-        name: 'seller email',
-        description: 'email of the seller',
-        type: String,
-        example: 'dev@gmail.com'
-    })
-    seller_email: string
-
-    @IsString()
-    @IsNotEmpty()
-    @ApiProperty({
-        name: 'seller phone number',
-        type:String,
-        example: '+880151515115'
-    })
-    phone: string
-
-    @IsString()
-    @IsEmail()
-    @IsNotEmpty()
-    @ApiProperty({
-        name: 'buyer email',
+        name: 'buyer_email',
         description: 'email of the buyer',
         type: String,
         example: 'dev@gmail.com'
     })
     buyer_email: string
 
-
-    @IsString()
+    @IsArray()
     @IsNotEmpty()
     @ApiProperty({
-        name: 'seller address',
-        type:String,
-        example: 'address*'
+        name: 'product_ids',
+        type: Array<number>,
+        example: 'product_ids*'
     })
-    seller_address?:string
+    product_ids: Array<number>
+
 
     @IsString()
     @IsNotEmpty()
     @ApiProperty({
-        name: 'buyer address',
+        name: 'buyer_address',
         type:String,
         example: 'address*'
     })

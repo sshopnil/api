@@ -11,4 +11,5 @@ export declare class ProductsController {
     updateProd(id: number, updatedInfo: UpdateProductDTO): Promise<Product>;
     findbyId(id: number): Promise<Product>;
     findbymail(email: string): Promise<Product[]>;
+    updateQTY(id: number, qty: number): Promise<boolean>;
 }

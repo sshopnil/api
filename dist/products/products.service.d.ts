@@ -62,4 +62,5 @@ export declare class ProductsService {
     update(id: number, updatedProd: UpdateProductDTO): Promise<Product>;
     getOne(id: number): Promise<Product>;
     findbymail(email: string): Promise<Product[]>;
+    updateOrder(ids: number, qty: number): Promise<boolean>;
 }

@@ -1,45 +1,38 @@
 import mongoose from "mongoose";
 
 export const OrderSchema = new mongoose.Schema({
-    id:{
+    id: {
         type: Number
     },
-    del_date:{
+    del_date: {
         type: String
     },
-    status:{
+    status: {
         type: Number,
         required: true
     },
-    price:{
+    price: {
         type: Number,
         required: true
     },
-    delDate_start:{
+    delDate_start: {
         type: String,
         required: true
     },
-    delDate_end:{
+    delDate_end: {
         type: String,
         required: true
     },
-    seller_email:{
+    buyer_email: {
         type: String,
         required: true
     },
-    phone:{
+    buyer_address: {
         type: String,
         required: true
     },
-    buyer_email:{
-        type: String,
-        required: true
-    },
-    seller_address:{
-        type: String,
-    },
-    buyer_address:{
-        type: String,
+    product_ids: {
+        type: Array<number>,
         required: true
     }
 });

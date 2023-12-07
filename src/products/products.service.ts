@@ -57,4 +57,14 @@ export class ProductsService {
     async findbymail(email: string):Promise<Product[]>{
         return await this.productModel.find({user_email: email});
     }
+
+    async updateOrder(ids: number, qty: number): Promise<boolean>{
+        const prod = await this.productModel.findOne({prod_id: ids});
+        const update = {
+            qty: prod.qty - qty
+        }
+        // console.log(update);
+        await this.productModel.findOneAndUpdate({prod_id: ids}, update, {new: true});
+        return true;
+    }
 }

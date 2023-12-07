@@ -54,37 +54,31 @@ export declare const OrderSchema: mongoose.Schema<any, mongoose.Model<any, any, 
     price: number;
     delDate_start: string;
     delDate_end: string;
-    seller_email: string;
-    phone: string;
     buyer_email: string;
     buyer_address: string;
+    product_ids: any[];
     id?: number;
     del_date?: string;
-    seller_address?: string;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
     status: number;
     price: number;
     delDate_start: string;
     delDate_end: string;
-    seller_email: string;
-    phone: string;
     buyer_email: string;
     buyer_address: string;
+    product_ids: any[];
     id?: number;
     del_date?: string;
-    seller_address?: string;
 }>> & mongoose.FlatRecord<{
     status: number;
     price: number;
     delDate_start: string;
     delDate_end: string;
-    seller_email: string;
-    phone: string;
     buyer_email: string;
     buyer_address: string;
+    product_ids: any[];
     id?: number;
     del_date?: string;
-    seller_address?: string;
 }> & {
     _id: mongoose.Types.ObjectId;
 }>;

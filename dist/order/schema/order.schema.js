@@ -25,23 +25,16 @@ exports.OrderSchema = new mongoose_1.default.Schema({
         type: String,
         required: true
     },
-    seller_email: {
-        type: String,
-        required: true
-    },
-    phone: {
-        type: String,
-        required: true
-    },
     buyer_email: {
         type: String,
         required: true
     },
-    seller_address: {
-        type: String,
-    },
     buyer_address: {
         type: String,
+        required: true
+    },
+    product_ids: {
+        type: (Array),
         required: true
     }
 });

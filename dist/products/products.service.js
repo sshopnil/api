@@ -54,6 +54,14 @@ let ProductsService = class ProductsService {
     async findbymail(email) {
         return await this.productModel.find({ user_email: email });
     }
+    async updateOrder(ids, qty) {
+        const prod = await this.productModel.findOne({ prod_id: ids });
+        const update = {
+            qty: prod.qty - qty
+        };
+        await this.productModel.findOneAndUpdate({ prod_id: ids }, update, { new: true });
+        return true;
+    }
 };
 exports.ProductsService = ProductsService;
 exports.ProductsService = ProductsService = __decorate([

@@ -17,31 +17,11 @@ class OrderDTO {
 exports.OrderDTO = OrderDTO;
 __decorate([
     (0, class_validator_1.IsNumber)(),
-    (0, swagger_1.ApiProperty)({
-        name: 'product id',
-        description: 'auto generated field (not required for body)',
-        type: Number,
-        example: '*not required*'
-    }),
-    __metadata("design:type", Number)
-], OrderDTO.prototype, "id", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsOptional)(),
-    (0, swagger_1.ApiProperty)({
-        name: 'delivery date',
-        type: String,
-        example: 'date string',
-    }),
-    __metadata("design:type", String)
-], OrderDTO.prototype, "del_date", void 0);
-__decorate([
-    (0, class_validator_1.IsNumber)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, swagger_1.ApiProperty)({
-        name: 'delivery status',
-        type: String,
-        example: 'date status',
+        name: 'status',
+        type: Number,
+        example: 'order status',
     }),
     __metadata("design:type", Number)
 ], OrderDTO.prototype, "status", void 0);
@@ -49,7 +29,7 @@ __decorate([
     (0, class_validator_1.IsNumber)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, swagger_1.ApiProperty)({
-        name: 'order price',
+        name: 'price',
         type: String,
         example: 'total price',
     }),
@@ -59,7 +39,7 @@ __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, swagger_1.ApiProperty)({
-        name: 'expected delivery',
+        name: 'delDate_start',
         type: String,
         example: 'date',
     }),
@@ -69,7 +49,7 @@ __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, swagger_1.ApiProperty)({
-        name: 'last delivery date',
+        name: 'delDate_end',
         type: String,
         example: 'date',
     }),
@@ -80,29 +60,7 @@ __decorate([
     (0, class_validator_1.IsEmail)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, swagger_1.ApiProperty)({
-        name: 'seller email',
-        description: 'email of the seller',
-        type: String,
-        example: 'dev@gmail.com'
-    }),
-    __metadata("design:type", String)
-], OrderDTO.prototype, "seller_email", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    (0, swagger_1.ApiProperty)({
-        name: 'seller phone number',
-        type: String,
-        example: '+880151515115'
-    }),
-    __metadata("design:type", String)
-], OrderDTO.prototype, "phone", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsEmail)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    (0, swagger_1.ApiProperty)({
-        name: 'buyer email',
+        name: 'buyer_email',
         description: 'email of the buyer',
         type: String,
         example: 'dev@gmail.com'
@@ -110,20 +68,20 @@ __decorate([
     __metadata("design:type", String)
 ], OrderDTO.prototype, "buyer_email", void 0);
 __decorate([
-    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsArray)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, swagger_1.ApiProperty)({
-        name: 'seller address',
-        type: String,
-        example: 'address*'
+        name: 'product_ids',
+        type: (Array),
+        example: 'product_ids*'
     }),
-    __metadata("design:type", String)
-], OrderDTO.prototype, "seller_address", void 0);
+    __metadata("design:type", Array)
+], OrderDTO.prototype, "product_ids", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, swagger_1.ApiProperty)({
-        name: 'buyer address',
+        name: 'buyer_address',
         type: String,
         example: 'address*'
     }),

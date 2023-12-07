@@ -5,11 +5,10 @@ export interface OrderItem{
     price:number
     delDate_start:string
     delDate_end:string
-    seller_email:string
-    phone:string
     buyer_email:string
-    seller_address?:string
     buyer_address:string
+    product_ids: Array<number>
+
 }
 export interface UpdateOrderItem{
     id?:number
@@ -18,9 +17,7 @@ export interface UpdateOrderItem{
     price?:number
     delDate_start?:string
     delDate_end?:string
-    seller_email?:string
-    phone?:string
     buyer_email?:string
-    seller_address?:string
     buyer_address?:string
+    product_ids?: Array<number>
 }

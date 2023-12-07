@@ -39,6 +39,9 @@ let ProductsController = class ProductsController {
     async findbymail(email) {
         return this.prodServ.findbymail(email);
     }
+    async updateQTY(id, qty) {
+        return this.prodServ.updateOrder(id, qty);
+    }
 };
 exports.ProductsController = ProductsController;
 __decorate([
@@ -83,6 +86,14 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], ProductsController.prototype, "findbymail", null);
+__decorate([
+    (0, common_1.Put)('/update_order/:id/:qty'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Param)('qty')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, Number]),
+    __metadata("design:returntype", Promise)
+], ProductsController.prototype, "updateQTY", null);
 exports.ProductsController = ProductsController = __decorate([
     (0, common_1.Controller)('products'),
     __metadata("design:paramtypes", [products_service_1.ProductsService])

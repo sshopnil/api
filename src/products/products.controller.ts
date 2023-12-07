@@ -44,4 +44,8 @@ export class ProductsController {
         return this.prodServ.findbymail(email);
     }
 
+    @Put('/update_order/:id/:qty')
+    async updateQTY(@Param('id') id: number, @Param('qty') qty: number): Promise<boolean>{
+        return this.prodServ.updateOrder(id, qty);
+    }
 }
