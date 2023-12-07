@@ -44,16 +44,25 @@ let ProductsService = class ProductsService {
         if (!findProd) {
             throw new common_1.NotFoundException('Product not found!');
         }
-        const { name, price, qty, desc, image, rating } = updatedProd;
+        const { name, price, qty, desc, image, rating, category } = updatedProd;
         const filter = { prod_id: id };
         const updateItem = {
-            name: name, price: price, qty: qty, desc: desc, image: image, rating: rating
+            name: name,
+            price: price,
+            qty: qty,
+            desc: desc,
+            image: image,
+            rating: rating,
+            category: category
         };
         const update = await this.productModel.findOneAndUpdate(filter, updatedProd, { new: true });
         return update;
     }
     async getOne(id) {
         return await this.productModel.findOne({ prod_id: id });
+    }
+    async findbymail(email) {
+        return await this.productModel.find({ user_email: email });
     }
 };
 exports.ProductsService = ProductsService;

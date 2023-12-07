@@ -61,4 +61,5 @@ export declare class ProductsService {
     delbyid(prod_id: number): Promise<boolean>;
     update(id: number, updatedProd: UpdateProductDTO): Promise<Product>;
     getOne(id: number): Promise<Product>;
+    findbymail(email: string): Promise<Product[]>;
 }

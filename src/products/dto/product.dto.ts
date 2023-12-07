@@ -87,6 +87,16 @@ export class CreateProductDTO{
         example: 'dev@gmail.com'
     })
     user_email: string
+
+    @IsString()
+    @IsNotEmpty()
+    @ApiProperty({
+        name: 'products category',
+        description: '1 for poltry, 2 for dairy, 3 for veg',
+        type:Number,
+        example: '1'
+    })
+    category: number
 };
 
 

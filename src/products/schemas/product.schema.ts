@@ -32,5 +32,9 @@ export const ProductSchema = new mongoose.Schema({
     user_email:{
         type: String,
         required: true
+    },
+    category:{
+        type:Number,
+        required: true
     }
 });

@@ -66,4 +66,14 @@ export class UpdateProductDTO{
         example: '50'
     })
     rating:number
+
+    @IsString()
+    @IsOptional()
+    @ApiProperty({
+        name: 'products category',
+        description: '1 for poltry, 2 for dairy, 3 for veg',
+        type:Number,
+        example: '1'
+    })
+    category: number
 }

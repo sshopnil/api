@@ -5,4 +5,5 @@ export declare class UpdateProductDTO {
     qty: number;
     desc: string;
     rating: number;
+    category: number;
 }

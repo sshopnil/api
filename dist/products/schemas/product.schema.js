@@ -33,6 +33,10 @@ exports.ProductSchema = new mongoose_1.default.Schema({
     user_email: {
         type: String,
         required: true
+    },
+    category: {
+        type: Number,
+        required: true
     }
 });
 //# sourceMappingURL=product.schema.js.map

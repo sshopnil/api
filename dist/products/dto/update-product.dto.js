@@ -81,4 +81,15 @@ __decorate([
     }),
     __metadata("design:type", Number)
 ], UpdateProductDTO.prototype, "rating", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    (0, swagger_1.ApiProperty)({
+        name: 'products category',
+        description: '1 for poltry, 2 for dairy, 3 for veg',
+        type: Number,
+        example: '1'
+    }),
+    __metadata("design:type", Number)
+], UpdateProductDTO.prototype, "category", void 0);
 //# sourceMappingURL=update-product.dto.js.map

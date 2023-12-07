@@ -102,5 +102,16 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], CreateProductDTO.prototype, "user_email", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, swagger_1.ApiProperty)({
+        name: 'products category',
+        description: '1 for poltry, 2 for dairy, 3 for veg',
+        type: Number,
+        example: '1'
+    }),
+    __metadata("design:type", Number)
+], CreateProductDTO.prototype, "category", void 0);
 ;
 //# sourceMappingURL=product.dto.js.map

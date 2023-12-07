@@ -39,4 +39,9 @@ export class ProductsController {
         return this.prodServ.getOne(id);
     }
 
+    @Get('/mail/:email')
+    async findbymail(@Param('email') email: string ): Promise<Product[]>{
+        return this.prodServ.findbymail(email);
+    }
+
 }

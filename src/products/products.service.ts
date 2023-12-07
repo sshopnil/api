@@ -43,12 +43,18 @@ export class ProductsService {
             throw new NotFoundException('Product not found!');
         }
 
-        const {name, price, qty, desc, image, rating} = updatedProd;
+        const {name, price, qty, desc, image, rating, category} = updatedProd;
 
 
         const filter = {prod_id: id};
         const updateItem = {
-            name: name, price: price, qty: qty, desc: desc, image: image, rating: rating
+            name: name, 
+            price: price, 
+            qty: qty, 
+            desc: desc, 
+            image: image, 
+            rating: rating, 
+            category: category
         }
 
         const update = await this.productModel.findOneAndUpdate(filter, updatedProd, {new: true});
@@ -58,5 +64,9 @@ export class ProductsService {
 
     async getOne(id : number):Promise<Product>{
         return await this.productModel.findOne({prod_id: id});
+    }
+
+    async findbymail(email: string):Promise<Product[]>{
+        return await this.productModel.find({user_email: email});
     }
 }

@@ -7,4 +7,5 @@ export declare class CreateProductDTO {
     desc: string;
     rating: number;
     user_email: string;
+    category: number;
 }

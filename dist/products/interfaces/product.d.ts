@@ -7,6 +7,7 @@ export interface Product {
     readonly desc: string;
     readonly rating?: number;
     readonly user_email: string;
+    readonly category: number;
 }
 export interface UpdateProduct {
     readonly name?: string;
@@ -15,4 +16,5 @@ export interface UpdateProduct {
     readonly qty?: number;
     readonly desc?: string;
     readonly rating?: number;
+    readonly category?: number;
 }

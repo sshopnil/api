@@ -10,4 +10,5 @@ export declare class ProductsController {
     deletebyid(prod_id: number): Promise<boolean>;
     updateProd(id: number, updatedInfo: UpdateProductDTO): Promise<Product>;
     findbyId(id: number): Promise<Product>;
+    findbymail(email: string): Promise<Product[]>;
 }
