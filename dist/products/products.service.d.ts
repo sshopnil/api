@@ -48,25 +48,17 @@
 /// <reference types="mongoose-sequence" />
 /// <reference types="mongoose/types/inferschematype" />
 /// <reference types="mongoose-sequence/node_modules/mongoose/types/inferschematype" />
-import * as mongoose from 'mongoose';
-export declare const UserSchema: mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
-    name: string;
-    email: string;
-    password: string;
-    image?: string;
-    user_role?: string;
-}, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
-    name: string;
-    email: string;
-    password: string;
-    image?: string;
-    user_role?: string;
-}>> & mongoose.FlatRecord<{
-    name: string;
-    email: string;
-    password: string;
-    image?: string;
-    user_role?: string;
-}> & {
-    _id: mongoose.Types.ObjectId;
-}>;
+import { Product } from './interfaces/product';
+import { Connection, Model } from 'mongoose';
+import { CreateProductDTO } from './dto/product.dto';
+import { UpdateProductDTO } from './dto/update-product.dto';
+export declare class ProductsService {
+    private readonly productModel;
+    private connection;
+    constructor(productModel: Model<Product>, connection: Connection);
+    addProduct(product: CreateProductDTO): Promise<boolean>;
+    getAllProd(): Promise<Product[]>;
+    delbyid(prod_id: number): Promise<boolean>;
+    update(id: number, updatedProd: UpdateProductDTO): Promise<Product>;
+    getOne(id: number): Promise<Product>;
+}

@@ -48,25 +48,34 @@
 /// <reference types="mongoose-sequence" />
 /// <reference types="mongoose/types/inferschematype" />
 /// <reference types="mongoose-sequence/node_modules/mongoose/types/inferschematype" />
-import * as mongoose from 'mongoose';
-export declare const UserSchema: mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
+import mongoose from "mongoose";
+export declare const ProductSchema: mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
     name: string;
-    email: string;
-    password: string;
-    image?: string;
-    user_role?: string;
+    image: string;
+    price: number;
+    qty: number;
+    desc: string;
+    user_email: string;
+    prod_id?: number;
+    rating?: number;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
     name: string;
-    email: string;
-    password: string;
-    image?: string;
-    user_role?: string;
+    image: string;
+    price: number;
+    qty: number;
+    desc: string;
+    user_email: string;
+    prod_id?: number;
+    rating?: number;
 }>> & mongoose.FlatRecord<{
     name: string;
-    email: string;
-    password: string;
-    image?: string;
-    user_role?: string;
+    image: string;
+    price: number;
+    qty: number;
+    desc: string;
+    user_email: string;
+    prod_id?: number;
+    rating?: number;
 }> & {
     _id: mongoose.Types.ObjectId;
 }>;
