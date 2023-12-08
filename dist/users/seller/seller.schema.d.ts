@@ -56,8 +56,8 @@ export declare const SellerSchema: mongoose.Schema<any, mongoose.Model<any, any,
     house: string;
     thana: string;
     division: string;
-    category: any[];
     phone: string;
+    category: any[];
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
     email: string;
     shop_name: string;
@@ -65,8 +65,8 @@ export declare const SellerSchema: mongoose.Schema<any, mongoose.Model<any, any,
     house: string;
     thana: string;
     division: string;
-    category: any[];
     phone: string;
+    category: any[];
 }>> & mongoose.FlatRecord<{
     email: string;
     shop_name: string;
@@ -74,8 +74,8 @@ export declare const SellerSchema: mongoose.Schema<any, mongoose.Model<any, any,
     house: string;
     thana: string;
     division: string;
-    category: any[];
     phone: string;
+    category: any[];
 }> & {
     _id: mongoose.Types.ObjectId;
 }>;

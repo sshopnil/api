@@ -26,8 +26,8 @@ let OrderService = class OrderService {
         await newOrder.save();
         return true;
     }
-    async findbySellermail(email) {
-        return await this.orderModel.find({ seller_email: email });
+    async findbySeller() {
+        return await this.orderModel.find();
     }
     async findbyBuyermail(email) {
         return await this.orderModel.find({ buyer_email: email });

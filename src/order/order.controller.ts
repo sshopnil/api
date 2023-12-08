@@ -14,9 +14,9 @@ export class OrderController {
     }
 
 
-    @Get('seller/:email')
-    async findbyseller(@Param('email') email: string): Promise<OrderItem[]>{
-        return this.orderServ.findbySellermail(email);
+    @Get('seller')
+    async findbyseller(): Promise<OrderItem[]>{
+        return this.orderServ.findbySeller();
     }
 
     @Get('buyer/:email')

@@ -71,12 +71,12 @@ __decorate([
     (0, class_validator_1.IsArray)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, swagger_1.ApiProperty)({
-        name: 'product_ids',
+        name: 'products',
         type: (Array),
         example: 'product_ids*'
     }),
     __metadata("design:type", Array)
-], OrderDTO.prototype, "product_ids", void 0);
+], OrderDTO.prototype, "products", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),

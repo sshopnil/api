@@ -31,9 +31,10 @@ export const OrderSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    product_ids: {
-        type: Array<number>,
+    products: {
+        type: Array<Object>,
         required: true
     }
+
 });
 

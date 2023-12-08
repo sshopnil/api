@@ -7,7 +7,7 @@ export interface OrderItem {
     delDate_end: string;
     buyer_email: string;
     buyer_address: string;
-    product_ids: Array<number>;
+    products: Array<Object>;
 }
 export interface UpdateOrderItem {
     id?: number;
@@ -18,5 +18,5 @@ export interface UpdateOrderItem {
     delDate_end?: string;
     buyer_email?: string;
     buyer_address?: string;
-    product_ids?: Array<number>;
+    products: Array<Object>;
 }

@@ -50,33 +50,33 @@
 /// <reference types="mongoose-sequence/node_modules/mongoose/types/inferschematype" />
 import mongoose from "mongoose";
 export declare const ProductSchema: mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
-    desc: string;
     name: string;
     image: string;
+    category: number;
+    desc: string;
     price: number;
     qty: number;
     user_email: string;
-    category: number;
     prod_id?: number;
     rating?: number;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
-    desc: string;
     name: string;
     image: string;
+    category: number;
+    desc: string;
     price: number;
     qty: number;
     user_email: string;
-    category: number;
     prod_id?: number;
     rating?: number;
 }>> & mongoose.FlatRecord<{
-    desc: string;
     name: string;
     image: string;
+    category: number;
+    desc: string;
     price: number;
     qty: number;
     user_email: string;
-    category: number;
     prod_id?: number;
     rating?: number;
 }> & {

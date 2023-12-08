@@ -57,7 +57,7 @@ export declare class OrderService {
     private connection;
     constructor(orderModel: Model<OrderItem>, connection: Connection);
     createOrder(order: OrderDTO): Promise<boolean>;
-    findbySellermail(email: string): Promise<OrderItem[]>;
+    findbySeller(): Promise<OrderItem[]>;
     findbyBuyermail(email: string): Promise<OrderItem[]>;
     updateAction(id: number, orderUpdate: UpdateOrderDTO): Promise<OrderItem>;
 }

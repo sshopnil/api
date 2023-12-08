@@ -6,7 +6,7 @@ export declare class OrderController {
     private readonly orderServ;
     constructor(orderServ: OrderService);
     addProd(order: OrderDTO): Promise<boolean>;
-    findbyseller(email: string): Promise<OrderItem[]>;
+    findbyseller(): Promise<OrderItem[]>;
     findbybuyer(email: string): Promise<OrderItem[]>;
     updateProd(id: number, updatedInfo: UpdateOrderDTO): Promise<OrderItem>;
 }

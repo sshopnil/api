@@ -24,8 +24,8 @@ let OrderController = class OrderController {
     async addProd(order) {
         return this.orderServ.createOrder(order);
     }
-    async findbyseller(email) {
-        return this.orderServ.findbySellermail(email);
+    async findbyseller() {
+        return this.orderServ.findbySeller();
     }
     async findbybuyer(email) {
         return this.orderServ.findbyBuyermail(email);
@@ -43,10 +43,9 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], OrderController.prototype, "addProd", null);
 __decorate([
-    (0, common_1.Get)('seller/:email'),
-    __param(0, (0, common_1.Param)('email')),
+    (0, common_1.Get)('seller'),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], OrderController.prototype, "findbyseller", null);
 __decorate([

@@ -54,11 +54,11 @@ export class OrderDTO {
     @IsArray()
     @IsNotEmpty()
     @ApiProperty({
-        name: 'product_ids',
-        type: Array<number>,
+        name: 'products',
+        type: Array<Object>,
         example: 'product_ids*'
     })
-    product_ids: Array<number>
+    products: Array<Object>
 
 
     @IsString()

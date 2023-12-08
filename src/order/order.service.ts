@@ -20,8 +20,10 @@ export class OrderService {
         return true;
     } 
 
-    async findbySellermail(email: string):Promise<OrderItem[]>{
-        return await this.orderModel.find({seller_email: email});
+    async findbySeller():Promise<OrderItem[]>{
+        //seller will pass an array of product ids to find his pending orders
+
+        return await this.orderModel.find();
     }
 
     async findbyBuyermail(email: string):Promise<OrderItem[]>{

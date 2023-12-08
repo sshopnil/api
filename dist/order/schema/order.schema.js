@@ -33,7 +33,7 @@ exports.OrderSchema = new mongoose_1.default.Schema({
         type: String,
         required: true
     },
-    product_ids: {
+    products: {
         type: (Array),
         required: true
     }

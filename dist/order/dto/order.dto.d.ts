@@ -4,6 +4,6 @@ export declare class OrderDTO {
     delDate_start: string;
     delDate_end: string;
     buyer_email: string;
-    product_ids: Array<number>;
+    products: Array<Object>;
     buyer_address: string;
 }
